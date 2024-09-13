@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container-fluid{
+  height: auto;
+  width: 100%;
+  height: 100vh;
+  border: 2px solid red;
+}
+.container{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column  ;
+  row-gap: 20px;
+}
+h2{
+  font-family: "Poppins";
+  font-weight: 600;
+}
+.myInput{
+  height: 40px;
+  width: 240px;
+  border: 1px solid #ccc;
+  padding: 5px;
+  font-family: 'poppins';
+  font-size: 1rem;
+  outline: none;
+
+}
+.myInput::placeholder{
+  font-family: 'poppins';
+  padding: 5px;
+}
+.myInput:focus{
+  border: 2px solid #ccc;
+}
+.btn1{
+  height: 40px;
+  width: 100px;
+  border: 1px solid #666;
+  font-size: 1rem;
+  border-radius: 5px;
+  font-family: 'poppins';
+  transition: 0.6s;
+  cursor: pointer;
+}
+.btn1:active{
+ border: 4px solid #000;
+}
+.todoList{
+  height: 40px;
+  width: 32%;
+  display: flex;
+  justify-content: space-between;
+  background-color: #ece4e4;
+  border-radius: 5px;
+}
+.todoList >h3{
+  font-family: 'poppins';
+  padding: 5px;
+  font-weight: normal;
+}
