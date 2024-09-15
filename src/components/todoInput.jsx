@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-function TodoInput({ value, onChange, onClick }) {
+function TodoInput({ value, onChange, onClick}) {
  
   useEffect(() => {
    console.log('Input Change');
