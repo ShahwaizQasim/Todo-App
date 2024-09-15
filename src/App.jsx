@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import TodoInput from "./components/todoInput";
 import TodoList from "./components/todoList";
 import "./App.css";
@@ -16,7 +16,7 @@ function App() {
   ]);
   console.log("Todos", Todos);
 
-  const handleOnAddButton = () => {
+  const handleOnAddButton = useCallback(() => {
     const todosAdd = setTodos([
       ...Todos,
       {
@@ -29,7 +29,7 @@ function App() {
     setInputValue("");
 
     console.log("todosAdd Click");
-  };
+  },[]);
 
   return (
     <div className="container-fluid">

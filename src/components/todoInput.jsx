@@ -1,4 +1,11 @@
+import { useEffect } from "react";
+
 function TodoInput({ value, onChange, onClick }) {
+ 
+  useEffect(() => {
+   console.log('Input Change');
+  },[onClick])
+
   return (
     <>
       <div className="todosBox">
