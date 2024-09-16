@@ -10,33 +10,49 @@ function App() {
   const [Todos, setTodos] = useState([
     {
       todo: "testing",
-      id: Date.now,
+      id: Date.now(),
       completed: false,
     },
   ]);
   // console.log("Todos", Todos);
 
   const handleOnAddButton = useCallback(() => {
-    const TodosAdd = setTodos([
+    const TodosAdd = [
       ...Todos,
       {
         todo: inputValue,
-        id: Date.now,
+        id: Math.random(),
         completed: false,
       },
-    ]);
+    ];
+
+    // console.log("TodosAdd", TodosAdd);
+
     setTodos([...TodosAdd]);
     setInputValue("");
 
     console.log("TodosAdd Click");
-  },[inputValue]);
+  }, [inputValue]);
 
-  const handleOnDeleteButton = useCallback((id) => {
-    const filter = Todos.filter((data) => data.id !== id);
-    setTodos([...filter]) 
-     console.log('id=>', id);
-     
-  },[inputValue]) 
+  const handleOnDeleteButton = useCallback(
+    (id) => {
+      const filter = Todos.filter((data) => data.id !== id);
+      console.log(filter);
+      setTodos([...filter]);
+      // console.log('id=>', id);
+    },
+    [Todos]
+  );
+
+  const handleOnToggle = (id) => {
+    const todoArray = [...Todos];
+    const todoIndx = todoArray.findIndex((data) => data.id == id);
+    todoArray[todoIndx].completed = !todoArray[todoIndx].completed;
+    setTodos([...todoArray]);
+
+    console.log("todoArray", todoArray);
+    console.log("todoIndx", todoIndx);
+  };
 
   return (
     <div className="container-fluid">
@@ -49,7 +65,11 @@ function App() {
           onDelete={handleOnDeleteButton}
         />
 
-        <TodoList todos={Todos} onDelete={handleOnDeleteButton} />
+        <TodoList
+          todos={Todos}
+          onDelete={handleOnDeleteButton}
+          toggleTodo={handleOnToggle}
+        />
       </div>
     </div>
   );
