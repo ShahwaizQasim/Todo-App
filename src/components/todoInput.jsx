@@ -16,11 +16,11 @@ function TodoInput({ value, onChange, onClick }) {
           onChange={onChange}
         />
         <button
-          className="btn1"
+          className={`${value === '' ? 'btn1' : 'btn1-Dup'}`}
           disabled={value === ""}
-          style={{
-            backgroundColor: value === "" ? "hsl(224, 87%, 76%)" : "#000",
-          }}
+          // style={{
+          //   backgroundColor: value === "" ? "#ccc" : "#000 text-white",
+          // }}
           onClick={onClick}
         >
           Add Todo

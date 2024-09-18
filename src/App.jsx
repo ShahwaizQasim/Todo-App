@@ -1,12 +1,11 @@
-import { useCallback, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import TodoInput from "./components/todoInput";
 import TodoList from "./components/todoList";
 import "./App.css";
 
 function App() {
   const [inputValue, setInputValue] = useState("");
-  // console.log("inputValue=>", inputValue);
-
+  const [Filter, setFilter] = useState("All");
   const [Todos, setTodos] = useState([
     {
       todo: "testing",
@@ -37,8 +36,8 @@ function App() {
   const handleOnDeleteButton = useCallback(
     (id) => {
       const filter = Todos.filter((data) => data.id !== id);
-      console.log(filter);
       setTodos([...filter]);
+      // console.log(filter);
       // console.log('id=>', id);
     },
     [Todos]
@@ -50,9 +49,27 @@ function App() {
     todoArray[todoIndx].completed = !todoArray[todoIndx].completed;
     setTodos([...todoArray]);
 
-    console.log("todoArray", todoArray);
-    console.log("todoIndx", todoIndx);
+    // console.log("todoArray", todoArray);
+    // console.log("todoIndx", todoIndx);
   };
+
+  const filterTodos = useMemo(
+    () =>
+      Todos.filter((data) => {
+        console.log("Filter Function Change");
+
+        if (Filter == "All") {
+          return true;
+        }
+        if (Filter == "Completed" && data.completed) {
+          return true;
+        }
+        if (Filter == "UnCompleted" && !data.completed) {
+          return true;
+        }
+      }),
+    [Filter, Todos]
+  );
 
   return (
     <div className="container-fluid">
@@ -65,8 +82,32 @@ function App() {
           onDelete={handleOnDeleteButton}
         />
 
+        <div className="FilterButtons">
+          <button
+            onClick={() => setFilter("All")}
+            className={` ${Filter == "All" ? "btn2-Dup" : "btn2"}`}
+            style={{
+              fontSize: "1.1rem",
+            }}
+          >
+            All
+          </button>
+          <button
+            onClick={() => setFilter("Completed")}
+            className={`${Filter == "Completed" ? "btn2-Dup" : "btn2"}`}
+          >
+            Complete
+          </button>
+          <button
+            onClick={() => setFilter("UnCompleted")}
+            className={`${Filter == "UnCompleted" ? "btn2-Dup" : "btn2"}`}
+          >
+            UnComplete
+          </button>
+        </div>
+
         <TodoList
-          todos={Todos}
+          todos={filterTodos}
           onDelete={handleOnDeleteButton}
           toggleTodo={handleOnToggle}
         />
