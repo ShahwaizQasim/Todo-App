@@ -1,6 +1,7 @@
 import { useCallback, useMemo, useState } from "react";
 import TodoInput from "./components/todoInput";
 import TodoList from "./components/todoList";
+import './index.css'
 import "./App.css";
 
 function App() {

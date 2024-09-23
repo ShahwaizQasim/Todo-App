@@ -1,0 +1,77 @@
+
+@media screen and (max-width:1024px) {
+    .todosBox {
+        width: 37%;
+    }
+    .todoList {
+        width: 37%;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .todosBox {
+        width: 50%;
+    }
+    .todoList {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width:524px) {
+    .todosBox {
+        width: 70%;
+    }
+    .todoList {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width:425px) {
+    .todosBox {
+        width: 85%;
+    }
+    .todoList {
+        width: 85%;
+    }
+}
+
+@media screen and (max-width:375px) {
+    .todosBox {
+        width: 85%;
+    }
+    .todoList {
+        width: 85%;
+    }
+    .btn1-Dup {
+        height: 40px;
+        width: 20%;
+    }
+    .btn2 {
+        height: 40px;
+        width: 100px;
+    }
+    .btn2-Dup {
+        height: 40px;
+        width: 100px;
+}
+}
+
+@media screen and (max-width:320px) {
+    .todosBox {
+        width: 100%;
+    }
+    .todoList {
+        width: 100%;
+    }
+    .btn2 {
+        height: 40px;
+        width: 90px;
+        font-size: 0.8rem;
+    }
+    .btn2-Dup {
+        height: 40px;
+        width: 90px;
+        font-size: 0.8rem;
+}
+  
+}
