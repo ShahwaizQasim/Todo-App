@@ -80,7 +80,6 @@ function App() {
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
           onClick={handleOnAddButton}
-          onDelete={handleOnDeleteButton}
         />
 
         <div className="FilterButtons">
